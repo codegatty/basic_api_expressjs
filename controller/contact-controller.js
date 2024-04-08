@@ -9,8 +9,9 @@ error handler middle ware*/
 //@access private
 
 const getContacts=async_handler(async (req,res)=>{
-    const contacts=await Contact.find({user_id:req.user.id});
+     const contacts=await Contact.find({user_id:req.user.id});
     res.status(200).json(contacts);
+    
 })
 
 
@@ -34,7 +35,7 @@ const getContact=async_handler(async (req,res)=>{
 
 const createContact=async_handler(async (req,res)=>{
     const{name,email,phone}=req.body;
-    
+    console.log("request reached");
     if(!name && !email && !phone){
         res.status(400);
         throw new Error("please enter value for required fields")

@@ -10,10 +10,13 @@ const {
 const tokenValidator = require("../middleware/tokenValidater");
 
 router.use(tokenValidator);//this method which apply middleware for all routes
+// console.log("request reached endpoi")
+ router.get("/",getContacts);
+ router.post("/",createContact);
 
-router.route("/").get(getContacts).post(createContact)
-
-router.route("/:id").put(updateContact).delete(deleteContact).get(getContact)
-
+// router.route("/:id").put(updateContact).delete(deleteContact).get(getContact)
+router.get("/test",(req,res)=>{
+    res.send("whatis theis")
+})
 module.exports=router;
 

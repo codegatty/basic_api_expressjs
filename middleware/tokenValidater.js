@@ -6,6 +6,11 @@ const tokenValidator=ansyncHandler((req,res,next)=>{
     let authheader=req.headers.authorization||req.headers.Authorization
     if(authheader && authheader.startsWith("Bearer")){
         token=authheader.split(" ")[1]
+        console.log(token)
+        if(!token){
+            res.status(401);
+            throw new Error("user unatharized or invalid")
+        }
         jwt.verify(token,process.env.ACCESS_TOKEN_SECRET,(err,decodedInfo)=>{
             if(err){
                 res.status(401);
@@ -14,10 +19,7 @@ const tokenValidator=ansyncHandler((req,res,next)=>{
             req.user=decodedInfo.user;
             next()
         });
-        if(!token){
-            res.status(401);
-            throw new Error("user unatharized or invalid")
-        }
+
     }
     
 })
