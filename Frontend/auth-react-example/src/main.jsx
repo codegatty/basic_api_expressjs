@@ -10,6 +10,8 @@ import Profile from './page/Profile.jsx'
 import ProtectedRoute from './page/ProtectedRoute.jsx'
 import PersistLogin from './page/PersistantLogin.jsx'
 
+import ImageUpload from './page/ImageUpload.jsx'
+
 const router=createBrowserRouter([
   {path:'/register',element:<Registration/>},
   {path:'/login', element:<Login/>},
@@ -22,6 +24,8 @@ const router=createBrowserRouter([
   {path:"/profile",element:<ProtectedRoute><Profile/></ProtectedRoute>}
 ]
 },
+{path:'/image',element:<ImageUpload/>}
+,
   {path:'/',element:<App/>}
 ])
 

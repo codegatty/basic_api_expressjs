@@ -5,6 +5,8 @@ import {AuthContext} from '../context/AuthProvider'
 import axios from 'axios'
 import {useNavigate} from 'react-router-dom'
 
+import ImageUpload from './ImageUpload';
+
 
 function Login() {
     const authCtx=useContext(AuthContext)
@@ -42,6 +44,7 @@ function Login() {
         {errors.password&&<div>enter password</div>}
         <button className='p-5 m-5 bg-green-700'type='submit'>{isSubmitting?"loading..":"login"}</button>      
     </form>
+    
     </div>
   )
 }

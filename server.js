@@ -17,6 +17,7 @@ app.use(cookieParser())
 //router middleware
 app.use("/api/contacts",require("./routes/contactRoute"))
 app.use("/api",require("./routes/userRoute"));
+app.use("/api/image",require("./routes/imageRoute"));
 
 //error-handling  middleware
 app.use(require('./middleware/errorHandler'))
