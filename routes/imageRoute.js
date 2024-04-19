@@ -8,7 +8,7 @@ const Image=require("../models/imageModel");
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-      cb(null, 'uploads/')
+      cb(null, 'public/uploads/')
     },
     filename: function (req, file, cb) {
       const uniqueSuffix = Date.now()
@@ -32,7 +32,7 @@ route.post('/',upload.single("image"),async (req,res)=>{
 route.get("/",async(req,res)=>{
   try{
     const data=await Image.find({});
-    res.status(200).json({"data":data})
+    res.status(200).json({data})
   }catch(error){
     console.log(error)
     return res.status(500).send({message:"Internal server error"})
